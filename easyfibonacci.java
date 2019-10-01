@@ -1,74 +1,34 @@
-import java.io.*;
+/* package codechef; // don't place package name! */
+
 import java.util.*;
-class fibonacci
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
 {
-    int fib(long N)
-    {
-        
-        
-        int [] arr=new int[60];
-        
-        arr[0]=0;
-        arr[1]=1;
-        
-        
-       // System.out.print(arr[0]+" "+arr[1]+" ");
-        
-        for(int i=2;i<60;i++)
-        {
-            
-            arr[i]=arr[i-1]+arr[i-2];
-            arr[i]%=10;
-            
-            
-           //System.out.print(arr[i]+" ");
-            
-            
-        }
-        //System.out.println();
-        int count=0;
-       while(N>1)
-       {
-           N=(N/2);
-
-           count++;
-
-       }
-       
-       long t=Long.valueOf((long)Math.pow(2,count));
-       
-      // System.out.println(res);
-      int z=(int)(t%60);
-      z--;
-      z+=60;
-      z=z%60;
-      
-       
-       return arr[z];
-    }
-    
-
-    public static void main(String[] args)
-    {
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-        try
-        {
-            String s=br.readLine();
-            int T=Integer.valueOf(s);
-            for(int i=0;i<T;i++)
-            {
-                s=br.readLine();
-                long N=Long.valueOf(s);
-                fibonacci ob=new fibonacci();
-               
-                
-                
-                System.out.println(ob.fib(N));
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int t;
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+	int[] dp = new int[10000000];
+		    dp[0] = 0;
+		    dp[1] = 1;
+		    for(int j=2;j<10000000;j++){
+		        dp[j] = (dp[j-1]+dp[j-2])%10;
+		    }
+		for(int i=0;i<t;i++){
+		    int n;
+		    n = sc.nextInt();
+		    
+		    int index=1;
+		    while(index<=n){
+		        index = index<<1;
+		    }
+		    index = index>>1;
+		    System.out.println(dp[index-1]);
+		}
+		
+	}
 }
