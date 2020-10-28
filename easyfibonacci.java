@@ -12,11 +12,12 @@ class Codechef
 		int t;
 		Scanner sc = new Scanner(System.in);
 		t = sc.nextInt();
-	int[] dp = new int[10000000];
+		int n=sc.nextInt();
+	int[] dp = new int[n+1];
 		    dp[0] = 0;
 		    dp[1] = 1;
-		    for(int j=2;j<10000000;j++){
-		        dp[j] = (dp[j-1]+dp[j-2])%10;
+		    for(int j=2;j<n+1;j++){
+		        dp[j] = (dp[j-1]+dp[j-2]);
 		    }
 		for(int i=0;i<t;i++){
 		    int n;
